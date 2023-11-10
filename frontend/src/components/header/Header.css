@@ -20,4 +20,9 @@
     display: flex;
 }
 
+.header-links ul li{
+    list-style: none;
+    display: inline-block;
+    font-size: 18px;
+}
 
