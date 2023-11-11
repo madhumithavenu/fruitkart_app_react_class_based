@@ -6,3 +6,12 @@
     text-align: center;
 }
 
+.products{
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(228, 141, 206);
+    border-radius: 5px;
+}
