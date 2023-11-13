@@ -10,6 +10,10 @@ export default class Products extends Component {
       flag: false,
       productsList: null
     }
+    this.sortAlphebetAcending = this.sortAlphebetAcending.bind(this);
+    this.sortAlphebetDecending = this.sortAlphebetDecending.bind(this);
+    this.sortPriceDecending = this.sortPriceDecending.bind(this);
+    this.sortPriceAcending = this.sortPriceAcending.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +34,7 @@ export default class Products extends Component {
       console.log('some big error');
     }
   }
-
+  
 
   render() {
 
@@ -66,7 +70,7 @@ export default class Products extends Component {
                   </div>
                   <div>
                     <button className='product-add-button'
-                      onClick={this.props.handleAddProduct(item)}>Add to Cart</button>
+                      onClick={() => this.props.handleAddProduct(item)}>Add to Cart</button>
                   </div>
                 </div>
               )

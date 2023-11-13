@@ -4,13 +4,9 @@ import './Cart.css';
 export default class Cart extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-      productsList: null
-    }
+    
   }
-
-
+  
   render() {
     
 
@@ -32,6 +28,7 @@ export default class Cart extends Component {
             No items are added in the cart
           </div>}
         <div>
+
           {this.props.cartItems.map(item => {
             return (<div key={item.id} className="cart-items-list">
               <img className="cart-item-image"
@@ -41,8 +38,8 @@ export default class Cart extends Component {
                 {item.name}
               </div>
               <div className='cart-items-function'>
-                <button className='cart-items-add' onClick={this.props.handleAddProduct(item)}>+</button>
-                <button className='cart-items-remove' onClick={this.props.handleRemoveProduct(item)}>-</button>
+                <button className='cart-items-add' onClick={()=> this.props.handleAddProduct(item)}>+</button>
+                <button className='cart-items-remove' onClick={()=>this.props.handleRemoveProduct(item)}>-</button>
               </div>
               <div className='cart-items-price'>
                 {item.quantity} x Rs.{item.price}
