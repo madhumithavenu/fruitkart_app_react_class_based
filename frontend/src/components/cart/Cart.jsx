@@ -5,15 +5,14 @@ export default class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listcart: {
-        cartItems: null
-      }
+
+      productsList: null
     }
   }
 
 
   render() {
-    const { cartItems } = this.state.listcart;
+    
 
     let totalPrice = this.props.cartItems.reduce((cost, item) => {
       return cost + (item.quantity * item.price)
@@ -24,16 +23,16 @@ export default class Cart extends Component {
       <div className='cart-items'>
         <h2 className='cart-items-header'>Cart Items</h2>
         <div className='clear-cart'>
-          {cartItems.length >= 1 && (
+          {this.props.cartItems.length >= 1 && (
             <button className='clear-cart-button' onClick={this.props.handleCartClearence}>Clear Cart</button>
           )}
         </div>
-        {cartItems.length === 0 &&
+        {this.props.cartItems.length === 0 &&
           <div className='cart-items-empty'>
             No items are added in the cart
           </div>}
         <div>
-          {cartItems.map(item => {
+          {this.props.cartItems.map(item => {
             return (<div key={item.id} className="cart-items-list">
               <img className="cart-item-image"
                 src={item.image}
@@ -42,8 +41,8 @@ export default class Cart extends Component {
                 {item.name}
               </div>
               <div className='cart-items-function'>
-                <button className='cart-items-add' onClick={() => this.props.handleAddProduct(item)}>+</button>
-                <button className='cart-items-remove' onClick={() => this.props.handleRemoveProduct(item)}>-</button>
+                <button className='cart-items-add' onClick={this.props.handleAddProduct(item)}>+</button>
+                <button className='cart-items-remove' onClick={this.props.handleRemoveProduct(item)}>-</button>
               </div>
               <div className='cart-items-price'>
                 {item.quantity} x Rs.{item.price}
