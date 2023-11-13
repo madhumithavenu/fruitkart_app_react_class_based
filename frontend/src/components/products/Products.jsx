@@ -34,7 +34,13 @@ export default class Products extends Component {
       console.log('some big error');
     }
   }
-  
+  sortAlphebetAcending() {
+    let productsCopy = [...this.state.productsList];
+    let sorted = productsCopy.sort((a, b) => {
+      return (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : 1;
+    });
+    this.setState({ flag: true, productsList: sorted });
+  }
 
   render() {
 
@@ -47,7 +53,7 @@ export default class Products extends Component {
                 Sort By
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1" onClick={null}>A -to- Z</Dropdown.Item>
+                <Dropdown.Item href="#/action-1" onClick={this.sortAlphebetAcending}>A -to- Z</Dropdown.Item>
                 <Dropdown.Item href="#/action-2" onClick={null}>Z -to- A</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item href="#/action-3" onClick={null}>High to Low</Dropdown.Item>
