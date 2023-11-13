@@ -42,6 +42,14 @@ export default class Products extends Component {
     this.setState({ flag: true, productsList: sorted });
   }
 
+  sortAlphebetDecending() {
+    let productsCopy = [...this.state.productsList];
+    let sorted = productsCopy.sort((a, b) => {
+      return (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : -1;
+    });
+    this.setState({ flag: true, productsList: sorted });
+  }
+
   render() {
 
     return (
