@@ -50,6 +50,14 @@ export default class Products extends Component {
     this.setState({ flag: true, productsList: sorted });
   }
 
+  sortPriceAcending() {
+    let productsCopy = [...this.state.productsList];
+    let sorted = productsCopy.sort((a, b) => a.price - b.price);
+    this.setState({ flag: true, productsList: sorted });
+  }
+
+  
+
   render() {
 
     return (
