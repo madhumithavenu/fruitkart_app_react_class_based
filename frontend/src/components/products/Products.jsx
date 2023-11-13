@@ -56,7 +56,11 @@ export default class Products extends Component {
     this.setState({ flag: true, productsList: sorted });
   }
 
-  
+  sortPriceDecending() {
+    let productsCopy = [...this.state.productsList];
+    let sorted = productsCopy.sort((a, b) => b.price - a.price);
+    this.setState({ flag: true, productsList: sorted });
+  }
 
   render() {
 
@@ -70,10 +74,10 @@ export default class Products extends Component {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1" onClick={this.sortAlphebetAcending}>A -to- Z</Dropdown.Item>
-                <Dropdown.Item href="#/action-2" onClick={null}>Z -to- A</Dropdown.Item>
+                <Dropdown.Item href="#/action-2" onClick={this.sortAlphebetDecending}>Z -to- A</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="#/action-3" onClick={null}>High to Low</Dropdown.Item>
-                <Dropdown.Item href="#/action-4" onClick={null}>Low to High</Dropdown.Item>
+                <Dropdown.Item href="#/action-3" onClick={this.sortPriceDecending}>High to Low</Dropdown.Item>
+                <Dropdown.Item href="#/action-4" onClick={this.sortPriceAcending}>Low to High</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
