@@ -14,7 +14,6 @@
     height: 50px;
     border-bottom: 2px solid black;
 }
-
 .cart-items-empty {
     display: flex;
     justify-content: center;
